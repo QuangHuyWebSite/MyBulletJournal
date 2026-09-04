@@ -1,26 +1,27 @@
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* Import trực tiếp phông chữ để tránh lỗi tải font */
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Playfair+Display:wght@600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  font-family: 'Patrick Hand', cursive, sans-serif;
-  font-size: 19px;
-  background-color: #EFEBE9;
-  color: #3E2723;* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'Patrick Hand', cursive, sans-serif;
+  font-family: 'Patrick Hand', cursive, sans-serif !important;
   font-size: 20px;
   background-color: #EFEBE9;
   color: #3E2723;
   padding: 12px;
 }
 
-/* Khung sổ tay */
+/* Khung sổ tay tổng thể */
 .notebook-wrapper {
   max-width: 850px;
   margin: 0 auto;
 }
 
-/* Thanh Tab */
+/* Thanh Tab điều hướng */
 .notebook-tabs {
   display: flex;
   gap: 6px;
@@ -42,23 +43,23 @@ body {
 }
 
 .tab-btn.active {
-  background: #FDFBF7;
-  color: #3E2723;
+  background: #FDFBF7 !important;
+  color: #3E2723 !important;
   font-weight: bold;
   border-bottom: 2px solid #FDFBF7;
   margin-bottom: -2px;
   z-index: 2;
 }
 
-/* Hiệu ứng Nền giấy chấm tròn (Dot Grid) offline vĩnh viễn */
+/* Nền Dot Grid (Chấm tròn chuẩn sổ tay) */
 .paper-page {
-  background-color: #FDFBF7;
-  background-image: radial-gradient(#A1887F 1.5px, transparent 1.5px);
-  background-size: 24px 24px;
+  background-color: #FDFBF7 !important;
+  background-image: radial-gradient(#A1887F 1.5px, transparent 1.5px) !important;
+  background-size: 24px 24px !important;
   min-height: 80vh;
   padding: 25px;
   border-radius: 0 8px 8px 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   border: 1px solid #D7CCC8;
 }
 
@@ -103,87 +104,3 @@ th, td { border: 1px solid #D7CCC8; padding: 6px 10px; text-align: center; }
 .backup-box { background: rgba(255,255,255,0.6); padding: 20px; border-radius: 6px; text-align: center; }
 .divider { margin: 15px 0; border-top: 1px dashed #BCAAA4; }
 .label-btn { display: inline-block; }
-  padding: 10px;
-}
-
-/* Khung sổ tay tổng thể */
-.notebook-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Tab điều hướng dạng nhãn kẹp sổ */
-.notebook-tabs {
-  display: flex;
-  gap: 4px;
-  overflow-x: auto;
-}
-
-.tab-btn {
-  background: #D7CCC8;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px 8px 0 0;
-  font-family: 'Playfair Display', serif;
-  font-size: 15px;
-  color: #5D4037;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.tab-btn.active {
-  background: #FDFBF7;
-  color: #3E2723;
-  font-weight: bold;
-  box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
-}
-
-/* Giấy Dot Grid */
-.paper-page {
-  background-color: #FDFBF7;
-  background-image: radial-gradient(#D7CCC8 1.5px, transparent 1.5px);
-  background-size: 22px 22px;
-  min-height: 80vh;
-  padding: 25px;
-  border-radius: 0 8px 8px 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  border: 1px solid #D7CCC8;
-}
-
-.section-title {
-  font-family: 'Playfair Display', serif;
-  border-bottom: 2px solid #8D6E63;
-  padding-bottom: 5px;
-  margin-bottom: 20px;
-}
-
-.tab-content { display: none; }
-.tab-content.active { display: block; }
-
-/* Input Elements */
-.input-group { display: flex; gap: 8px; margin-bottom: 15px; }
-.input-group input { flex: 1; padding: 10px; border: 1px solid #BCAAA4; border-radius: 4px; font-family: inherit; font-size: 18px; background: rgba(255,255,255,0.8); }
-.input-group select, .input-group button, .action-btn { padding: 10px 15px; background: #8D6E63; color: white; border: none; border-radius: 4px; cursor: pointer; font-family: inherit; font-size: 18px; }
-
-/* Bullet Items */
-.bullet-list { list-style: none; }
-.bullet-item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px dashed #E0E0E0; }
-.bullet-icon { font-weight: bold; font-size: 22px; width: 25px; text-align: center; cursor: pointer; user-select: none; }
-.bullet-text.done { text-decoration: line-through; opacity: 0.5; }
-.hint-text { font-size: 14px; color: #795548; margin-bottom: 15px; }
-
-/* Future Log Grid */
-.future-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
-.month-card { background: rgba(255,255,255,0.6); padding: 12px; border: 1px solid #D7CCC8; border-radius: 6px; }
-
-/* Habit Tracker Table */
-.habit-table-wrapper { overflow-x: auto; margin-top: 15px; }
-table { border-collapse: collapse; width: 100%; background: rgba(255,255,255,0.7); }
-th, td { border: 1px solid #D7CCC8; padding: 8px; text-align: center; font-size: 16px; }
-.habit-check { cursor: pointer; user-select: none; }
-
-/* Collections Card */
-.collections-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-.collection-card { background: rgba(255,255,255,0.8); border: 1px solid #BCAAA4; border-radius: 6px; padding: 15px; }

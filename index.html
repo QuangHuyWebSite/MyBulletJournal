@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bullet Journal Notebook Pro</title>
+  <title>Bullet Journal Pro</title>
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css?v=3">
   <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
 </head>
 <body>
   <div class="notebook-wrapper">
     <!-- Thanh Tab điều hướng dạng Nhãn sổ -->
     <nav class="notebook-tabs">
-      <button class="tab-btn active" onclick="switchTab('daily')">📖 Daily Log</button>
-      <button class="tab-btn" onclick="switchTab('future')">📅 Future Log</button>
-      <button class="tab-btn" onclick="switchTab('habit')">✨ Habits</button>
-      <button class="tab-btn" onclick="switchTab('collections')">📁 Collections</button>
-      <button class="tab-btn" onclick="switchTab('backup')">💾 Backup</button>
+      <button class="tab-btn active" onclick="switchTab(event, 'daily')">📖 Daily Log</button>
+      <button class="tab-btn" onclick="switchTab(event, 'future')">📅 Future Log</button>
+      <button class="tab-btn" onclick="switchTab(event, 'habit')">✨ Habits</button>
+      <button class="tab-btn" onclick="switchTab(event, 'collections')">📁 Collections</button>
+      <button class="tab-btn" onclick="switchTab(event, 'backup')">💾 Backup</button>
     </nav>
 
     <!-- Trang Sổ (Paper Canvas Dot Grid) -->
@@ -37,7 +37,7 @@
           <input type="text" id="note-input" placeholder="Nhập ghi chú hôm nay..." />
           <button id="add-btn">Thêm</button>
         </div>
-        <p class="hint-text">* Nhấp vào hạt Bullet (•) để chuyển trạng thái: • → X (Hoàn thành) → > (Lùi lịch) → •</p>
+        <p class="hint-text">* Nhấp vào ký tự đầu dòng (• / o) để đổi trạng thái.</p>
         <ul id="bullet-items" class="bullet-list"></ul>
       </section>
 
@@ -56,7 +56,7 @@
       <section id="sec-habit" class="tab-content">
         <h2 class="section-title">Habit Tracker (Theo dõi thói quen)</h2>
         <div class="input-group">
-          <input type="text" id="habit-input" placeholder="Tên thói quen mới (VD: Uống 2L nước)..." />
+          <input type="text" id="habit-input" placeholder="Tên thói quen mới..." />
           <button id="add-habit-btn">Tạo Tracker</button>
         </div>
         <div class="habit-table-wrapper">
@@ -73,7 +73,7 @@
       <section id="sec-collections" class="tab-content">
         <h2 class="section-title">Collections (Bộ sưu tập)</h2>
         <div class="input-group">
-          <input type="text" id="collection-input" placeholder="Tên chủ đề (VD: Sách muốn đọc)..." />
+          <input type="text" id="collection-input" placeholder="Tên chủ đề..." />
           <button id="add-col-btn">Tạo thẻ</button>
         </div>
         <div id="collections-list" class="collections-container"></div>
@@ -94,6 +94,6 @@
     </div>
   </div>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
