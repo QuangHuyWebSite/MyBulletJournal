@@ -1,6 +1,6 @@
 {
-  "short_name": "BuJo App",
-  "name": "Bullet Journal Notebook",
+  "short_name": "BuJo Pro",
+  "name": "Bullet Journal Notebook Pro",
   "icons": [
     {
       "src": "https://via.placeholder.com/192",
@@ -14,8 +14,8 @@
     }
   ],
   "start_url": "./index.html",
-  "background_color": "#FDFBF7",
-  "theme_color": "#8D6E63",
+  "background_color": "#F4EAD5",
+  "theme_color": "#6D4C41",
   "display": "standalone",
   "orientation": "any"
 }

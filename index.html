@@ -3,41 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bullet Journal PWA</title>
+  <title>Bullet Journal Pro</title>
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
 </head>
 <body>
-  <div class="app-container">
-    <aside class="sidebar">
-      <h2>Bullet Journal</h2>
-      <p class="subtitle">Sổ tay cá nhân</p>
-      
-      <div class="backup-tools">
-        <button id="export-btn">📥 Sao lưu JSON</button>
-        <label for="import-file" class="file-label">📤 Khôi phục</label>
-        <input type="file" id="import-file" accept=".json" hidden>
-      </div>
-    </aside>
+  <div class="notebook-wrapper">
+    <!-- Thanh Tab điều hướng dạng Nhãn sổ tay -->
+    <nav class="notebook-tabs">
+      <button class="tab-btn active" data-tab="daily">📖 Daily</button>
+      <button class="tab-btn" data-tab="future">📅 Future Log</button>
+      <button class="tab-btn" data-tab="habit">✨ Habits</button>
+      <button class="tab-btn" data-tab="collections">📁 Collections</button>
+      <button class="tab-btn" data-tab="backup">💾 Backup</button>
+    </nav>
 
-    <main class="content">
-      <header>
-        <h1>Nhật ký ghi chú</h1>
-      </header>
+    <!-- Trang Sổ (Paper Canvas) -->
+    <div class="paper-page">
       
-      <div class="input-group">
-        <select id="type-select">
-          <option value="task">• Công việc</option>
-          <option value="event">o Sự kiện</option>
-          <option value="note">- Ghi chú</option>
-        </select>
-        <input type="text" id="note-input" placeholder="Nhập ghi chú mới..." />
-        <button id="add-btn">Thêm</button>
-      </div>
+      <!-- PHÂN HỆ 1: DAILY LOG -->
+      <section id="sec-daily" class="tab-content active">
+        <h2 class="section-title">Daily Log</h2>
+        <div class="input-group">
+          <select id="type-select">
+            <option value="task">• Task</option>
+            <option value="event">o Event</option>
+            <option value="note">- Note</option>
+          </select>
+          <input type="text" id="note-input" placeholder="Ghi chép công việc, sự kiện..." />
+          <button id="add-btn">Thêm</button>
+        </div>
+        <p class="hint-text">*Mẹo: Bấm vào hạt kẹp kẹp (•) để đổi trạng thái: • → X (Xong) → > (Dời) → •</p>
+        <ul id="bullet-items" class="bullet-list"></ul>
+      </section>
 
-      <ul id="bullet-items" class="bullet-list"></ul>
-    </main>
+      <!-- PHÂN HỆ 2: FUTURE LOG -->
+      <section id="sec-future" class="tab-content">
+        <h2 class="section-title">Future Log (Kế hoạch năm)</h2>
+        <div class="future-grid">
+          <div class="month-card"><h3>Tháng 1</h3><ul id="fl-m1"></ul></div>
+          <div class="month-card"><h3>Tháng 2</h3><ul id="fl-m2"></ul></div>
+          <div class="month-card"><h3>Tháng 3</h3><ul id="fl-m3"></ul></div>
+          <div class="month-card"><h3>Tháng 4</h3><ul id="fl-m4"></ul></div>
+        </div>
+      </section>
+
+      <!-- PHÂN HỆ 3: HABIT TRACKER -->
+      <section id="sec-habit" class="tab-content">
+        <h2 class="section-title">Habit Tracker</h2>
+        <div class="input-group">
+          <input type="text" id="habit-input" placeholder="Tên thói quen mới (VD: Uống 2L nước)..." />
+          <button id="add-habit-btn">Tạo Tracker</button>
+        </div>
+        <div class="habit-table-wrapper">
+          <table id="habit-table">
+            <thead>
+              <tr id="habit-header-row">
+                <th>Thói quen</th>
+                <!-- Ngày trong tháng sẽ được render tự động -->
+              </tr>
+            </thead>
+            <tbody id="habit-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- PHÂN HỆ 4: COLLECTIONS -->
+      <section id="sec-collections" class="tab-content">
+        <h2 class="section-title">Collections (Bộ sưu tập)</h2>
+        <div class="input-group">
+          <input type="text" id="collection-input" placeholder="Chủ đề mới (VD: Sách cần đọc)..." />
+          <button id="add-col-btn">Tạo chủ đề</button>
+        </div>
+        <div id="collections-list" class="collections-container"></div>
+      </section>
+
+      <!-- PHÂN HỆ 5: BACKUP & RESTORE -->
+      <section id="sec-backup" class="tab-content">
+        <h2 class="section-title">Sao lưu & Khôi phục</h2>
+        <div class="backup-card">
+          <p>Dữ liệu được lưu vĩnh viễn trên thiết bị. Bạn có thể xuất file sao lưu định kỳ để bảo đảm an toàn.</p>
+          <br>
+          <button id="export-btn" class="action-btn">📥 Xuất file JSON</button>
+          <hr style="margin: 20px 0; border: 0; border-top: 1px dashed #CCC;">
+          <label for="import-file" class="action-btn label-btn">📤 Khôi phục file JSON</label>
+          <input type="file" id="import-file" accept=".json" hidden>
+        </div>
+      </section>
+
+    </div>
   </div>
 
   <script src="app.js"></script>
