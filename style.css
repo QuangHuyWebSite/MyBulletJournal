@@ -4,7 +4,105 @@ body {
   font-family: 'Patrick Hand', cursive, sans-serif;
   font-size: 19px;
   background-color: #EFEBE9;
+  color: #3E2723;* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Patrick Hand', cursive, sans-serif;
+  font-size: 20px;
+  background-color: #EFEBE9;
   color: #3E2723;
+  padding: 12px;
+}
+
+/* Khung sổ tay */
+.notebook-wrapper {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* Thanh Tab */
+.notebook-tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.tab-btn {
+  background: #D7CCC8;
+  border: 1px solid #BCAAA4;
+  border-bottom: none;
+  padding: 8px 16px;
+  border-radius: 8px 8px 0 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  color: #5D4037;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tab-btn.active {
+  background: #FDFBF7;
+  color: #3E2723;
+  font-weight: bold;
+  border-bottom: 2px solid #FDFBF7;
+  margin-bottom: -2px;
+  z-index: 2;
+}
+
+/* Hiệu ứng Nền giấy chấm tròn (Dot Grid) offline vĩnh viễn */
+.paper-page {
+  background-color: #FDFBF7;
+  background-image: radial-gradient(#A1887F 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  min-height: 80vh;
+  padding: 25px;
+  border-radius: 0 8px 8px 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  border: 1px solid #D7CCC8;
+}
+
+/* Bật/Tắt phân trang Tab */
+.tab-content {
+  display: none !important;
+}
+
+.tab-content.active {
+  display: block !important;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  border-bottom: 2px solid #8D6E63;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+/* Input Styles */
+.input-group { display: flex; gap: 8px; margin-bottom: 12px; }
+.input-group input { flex: 1; padding: 8px 12px; border: 1px solid #BCAAA4; border-radius: 4px; font-family: inherit; font-size: 19px; background: rgba(255,255,255,0.85); }
+.input-group select, .input-group button, .action-btn { padding: 8px 14px; background: #8D6E63; color: white; border: none; border-radius: 4px; cursor: pointer; font-family: inherit; font-size: 18px; }
+
+/* Bullet Items */
+.bullet-list { list-style: none; }
+.bullet-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px dashed #D7CCC8; }
+.bullet-icon { font-weight: bold; font-size: 24px; width: 30px; text-align: center; cursor: pointer; user-select: none; color: #5D4037; }
+.bullet-text.done { text-decoration: line-through; opacity: 0.5; }
+.hint-text { font-size: 15px; color: #795548; margin-bottom: 12px; }
+
+/* Habit Tracker Table */
+.habit-table-wrapper { overflow-x: auto; margin-top: 10px; }
+table { border-collapse: collapse; width: 100%; background: rgba(255,255,255,0.7); }
+th, td { border: 1px solid #D7CCC8; padding: 6px 10px; text-align: center; }
+.habit-check { cursor: pointer; font-size: 20px; }
+
+/* Collections Cards */
+.collections-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.collection-card { background: rgba(255,255,255,0.85); border: 1px solid #BCAAA4; border-radius: 6px; padding: 12px; }
+
+.backup-box { background: rgba(255,255,255,0.6); padding: 20px; border-radius: 6px; text-align: center; }
+.divider { margin: 15px 0; border-top: 1px dashed #BCAAA4; }
+.label-btn { display: inline-block; }
   padding: 10px;
 }
 
