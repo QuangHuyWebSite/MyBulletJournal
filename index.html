@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bullet Journal PWA</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <h2>Bullet Journal</h2>
+      <p class="subtitle">Sổ tay cá nhân</p>
+      
+      <div class="backup-tools">
+        <button id="export-btn">📥 Sao lưu JSON</button>
+        <label for="import-file" class="file-label">📤 Khôi phục</label>
+        <input type="file" id="import-file" accept=".json" hidden>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header>
+        <h1>Nhật ký ghi chú</h1>
+      </header>
+      
+      <div class="input-group">
+        <select id="type-select">
+          <option value="task">• Công việc</option>
+          <option value="event">o Sự kiện</option>
+          <option value="note">- Ghi chú</option>
+        </select>
+        <input type="text" id="note-input" placeholder="Nhập ghi chú mới..." />
+        <button id="add-btn">Thêm</button>
+      </div>
+
+      <ul id="bullet-items" class="bullet-list"></ul>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
